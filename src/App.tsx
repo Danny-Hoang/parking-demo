@@ -24,18 +24,18 @@ function App() {
 	}
 
 	const generatePaths = (points: Point[]) => {
-		let begin = true
 		let action = 'M'
 		let path = '';
-		for(let i = 0; i < points.length - 1; i++) {
-			let current = points[i]
-			let next = points[i+1]
-			const deltaX = next[0] - current[0];
-			const deltaY = next[1] - current[1];
-			path = `${path} ${action} ${deltaX} ${deltaY}`
-
-			action = 'l';
+		for (let i = 0; i < points.length - 1; i++) {
+		  let current = points[i]
+		  let next = points[i + 1]
+		  const deltaX = next[0] - current[0];
+		  const deltaY = next[1] - current[1];
+		  path = `${path} ${action}${!i ? ` ${points[i][0]} ${points[i][1]} l` : ''} ${deltaX} ${deltaY}`
+		  action = 'l';
 		}
+	  
+		return path;
 	}
 
 	const transition = { duration: 2, ease: "easeInOut" };
