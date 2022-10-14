@@ -16,9 +16,7 @@ function App() {
 	const points: Point[] = [[100, 190], [410, 190],[410, 300],[1060, 300]]
 
 	const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-		const target = e.currentTarget;
 		const { clientX, clientY } = e
-
 		console.log({ clientX, clientY })
 
 	}
@@ -47,7 +45,7 @@ function App() {
 
 			<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="2000">
 				<motion.path
-					d="M 100 190 l 310 0  l 0 110 l 650 0"
+					d={generatePaths(points)}
 					fill="transparent"
 					strokeWidth="5"
 					stroke="royalblue"
